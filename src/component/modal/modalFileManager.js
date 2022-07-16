@@ -1,58 +1,71 @@
 import React, { useState } from "react";
 
-import Folder from "../../assets/folder.png";
+import FolderImg from "../../assets/folder.png";
+import FileImg from "../../assets/file.png";
 
 import {
   VscChromeMaximize,
   VscClose,
   VscChromeMinimize,
 } from "react-icons/vsc";
+
 export default function ModalFileManager({ handleMinClose, handleMaximize }) {
   const [maximum, setMaximum] = useState(false);
-  const [folders] = useState([
+  const [items] = useState([
     {
       id: 1,
-      label: "Folder 1",
+      name: "Folder 1",
+      type: "folder",
     },
     {
-      id: 2,
-      label: "Folder 2",
+      id: 1,
+      name: "My Note.txt",
+      type: "file",
     },
     {
-      id: 3,
-      label: "Folder 3",
+      id: 1,
+      name: "index.js",
+      type: "file",
     },
     {
-      id: 4,
-      label: "Folder 4",
+      id: 1,
+      name: "Folder 2",
+      type: "folder",
     },
     {
-      id: 5,
-      label: "Folder 5",
+      id: 1,
+      name: "Pictures",
+      type: "folder",
     },
     {
-      id: 6,
-      label: "Folder 6",
+      id: 1,
+      name: "Gallery",
+      type: "folder",
     },
     {
-      id: 7,
-      label: "Folder 7",
-    },
-    {
-      id: 8,
-      label: "Folder 8",
-    },
-    {
-      id: 9,
-      label: "Folder 9",
+      id: 1,
+      name: "Documents",
+      type: "folder",
     },
   ]);
-  const ReuseFolder = ({ label }) => (
-    <div className="flex flex-col justify-center items-center">
-      <img src={Folder} alt="" className="w-10 h-10" />
-      <p className="text-xs pt-1">{label}</p>
-    </div>
-  );
+
+  const ReuseItem = ({ name, type }) => {
+    const images = {
+      file: FileImg,
+      folder: FolderImg,
+    };
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <img
+          // src={type === "folder" ? FolderImg : FileImg}
+          src={images[type]}
+          alt=""
+          className="w-10 h-10"
+        />
+        <p className="text-xs pt-1">{name}</p>
+      </div>
+    );
+  };
 
   return (
     <div className="w-full h-screen overflow-hidden flex items-center justify-center ">
@@ -63,7 +76,7 @@ export default function ModalFileManager({ handleMinClose, handleMaximize }) {
         >
           <div></div>
           <div
-            className="text-white px-2 rounded-lg text-center"
+            className="text-white px-2 rounded-lg text-center flex justify-center items-center gap-4"
             style={{ width: "500px", background: "#2D2D2D" }}
           >
             Home
@@ -83,10 +96,8 @@ export default function ModalFileManager({ handleMinClose, handleMaximize }) {
               maximum ? `lg:grid-cols-10` : `lg:grid-cols-3`
             }`}
           >
-            {folders &&
-              folders.map((folder) => (
-                <ReuseFolder key={folder.id} label={folder.label} />
-              ))}
+            {items &&
+              items.map((item) => <ReuseItem key={item.id} {...item} />)}
           </div>
         </div>
       </div>

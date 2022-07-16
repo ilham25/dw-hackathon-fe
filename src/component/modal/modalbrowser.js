@@ -8,10 +8,10 @@ export default function ModalBrowser() {
         style={{ background: "#353535" }}
       >
         <p
-          className="text-white px-2 rounded-lg text-center"
+          className="text-white px-2 rounded-lg text-center cursor-default pointer-events-none"
           style={{ width: "500px", background: "#2D2D2D" }}
         >
-          https://google.com
+          https://dumbways.id/
         </p>
       </div>
       <div
