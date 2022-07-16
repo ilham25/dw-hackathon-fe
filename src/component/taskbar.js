@@ -7,7 +7,11 @@ import Camera from "../assets/camera.png";
 import NoteEdit from "../assets/noteedit.png";
 import Setting from "../assets/setting.png";
 
-export default function Taskbar({ showBrowser, showNoteEdit }) {
+export default function Taskbar({
+  showBrowser,
+  showNoteEdit,
+  showFileManager,
+}) {
   const ReuseTaskbar = ({ image, onClick }) => (
     <div onClick={onClick} className="hover:bg-gray-500 h-10 p-2">
       <img src={image} alt="" className="h-5" />
@@ -18,7 +22,7 @@ export default function Taskbar({ showBrowser, showNoteEdit }) {
       <div></div>
       <div className="flex gap-4">
         <ReuseTaskbar image={Windows} />
-        <ReuseTaskbar image={FileManager} />
+        <ReuseTaskbar image={FileManager} onClick={showFileManager} />
         <ReuseTaskbar image={Chrome} onClick={showBrowser} />
         <ReuseTaskbar image={VSCode} onClick={showBrowser} />
         <ReuseTaskbar image={Camera} />
