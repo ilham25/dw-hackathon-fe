@@ -12,8 +12,8 @@ export default function login() {
           Register
         </div>
         <form className="flex flex-col items-center">
-          <Input placeholder="Avatar URL" />
           <Input placeholder="Username" />
+          <Input placeholder="Avatar URL" />
           <Input placeholder="Password" />
           <Button type="submit" label="Submit" />
         </form>
