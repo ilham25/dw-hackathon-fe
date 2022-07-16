@@ -14,7 +14,7 @@ export default function desktop() {
       className="w-full h-screen "
       style={{ backgroundImage: `url(${backgroundDefault})` }}
     >
-      <div className="w-full absolute bottom-0 bg-slate-500/50 flex items-center justify-between p-2">
+      <div className="w-full absolute bottom-0 bg-black/60  h-9 flex items-center justify-between p-2">
         <div></div>
         <div className="flex gap-8 h-5">
           <img src={Windows} alt="" />
@@ -25,7 +25,7 @@ export default function desktop() {
           <img src={NoteEdit} alt="" />
           <img src={Setting} alt="" />
         </div>
-        <div className="text-white">13.44</div>
+        <p className="text-white">13.44</p>
       </div>
     </div>
   );
