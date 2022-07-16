@@ -48,7 +48,7 @@ export default function ModalFileManager({ handleMinClose, handleMaximize }) {
     },
   ]);
   const ReuseFolder = ({ label }) => (
-    <div className="flex flex-col w-12  justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
       <img src={Folder} alt="" className="w-10 h-10" />
       <p className="text-xs pt-1">{label}</p>
     </div>
