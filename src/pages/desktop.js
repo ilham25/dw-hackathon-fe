@@ -25,7 +25,7 @@ export default function desktop() {
           <img src={NoteEdit} alt="" />
           <img src={Setting} alt="" />
         </div>
-        <div>13.44</div>
+        <div className="text-white">13.44</div>
       </div>
     </div>
   );
