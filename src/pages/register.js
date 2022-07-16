@@ -1,6 +1,9 @@
 import React from "react";
 import Input from "../component/input";
 import Button from "../component/button";
+import { Link } from "react-router-dom";
+import { IoIosArrowRoundForward } from "react-icons/io";
+
 export default function login() {
   return (
     <div className="w-full h-screen bg-gray-600 flex justify-center items-center">
@@ -17,6 +20,14 @@ export default function login() {
           <Input placeholder="Password" />
           <Button type="submit" label="Submit" />
         </form>
+        <div className="flex items-center justify-center mt-7">
+          <p className="text-gray-500">already have an account?</p>
+          <Link to="/login">
+            <p className="text-gray-500 flex items-center ml-2 border-2 p-1 border-gray-300	rounded-lg">
+              Sign In <IoIosArrowRoundForward />
+            </p>
+          </Link>
+        </div>
       </div>
     </div>
   );
