@@ -7,7 +7,7 @@ import Camera from "../assets/camera.png";
 import NoteEdit from "../assets/noteedit.png";
 import Setting from "../assets/setting.png";
 
-export default function Taskbar({ showBrowser }) {
+export default function Taskbar({ showBrowser, showNoteEdit }) {
   return (
     <div className="w-full sticky bottom-0 bg-black/60  h-9 flex items-center justify-between p-2">
       <div></div>
@@ -17,7 +17,7 @@ export default function Taskbar({ showBrowser }) {
         <img src={Chrome} alt="" onClick={showBrowser} />
         <img src={VSCode} alt="" onClick={showBrowser} />
         <img src={Camera} alt="" />
-        <img src={NoteEdit} alt="" />
+        <img src={NoteEdit} alt="" onClick={showNoteEdit} />
         <img src={Setting} alt="" />
       </div>
       <p className="text-white">13.44</p>
