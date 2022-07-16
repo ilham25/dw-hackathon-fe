@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Windows from "../assets/windows.png";
 import FileManager from "../assets/filemanager.png";
 import Chrome from "../assets/chrome.png";
@@ -6,6 +6,33 @@ import VSCode from "../assets/vscode.png";
 import Camera from "../assets/camera.png";
 import NoteEdit from "../assets/noteedit.png";
 import Setting from "../assets/setting.png";
+
+const TimeClock = () => {
+  const [time, setTime] = useState("");
+  function startTime() {
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    setTime(h + ":" + m);
+    setTimeout(startTime, 1000);
+  }
+
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    } // add zero in front of numbers < 10
+    return i;
+  }
+
+  useEffect(() => {
+    startTime();
+  }, []);
+
+  return <p className="text-white">{time}</p>;
+};
 
 export default function Taskbar({
   showBrowser,
@@ -29,7 +56,7 @@ export default function Taskbar({
         <ReuseTaskbar image={NoteEdit} onClick={showNoteEdit} />
         <ReuseTaskbar image={Setting} />
       </div>
-      <p className="text-white">13.44</p>
+      <TimeClock />
     </div>
   );
 }
